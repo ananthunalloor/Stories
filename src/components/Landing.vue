@@ -26,6 +26,7 @@
     </div>
 </template>
 <script>
+import { TimelineLite } from 'gsap
 export default {
   name: "Landing"
 };

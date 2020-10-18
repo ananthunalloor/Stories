@@ -34,7 +34,7 @@
                 class="input is-danger"
                 type="email"
                 placeholder="Email input"
-                value="hello@"
+                value=""
               />
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
@@ -43,7 +43,7 @@
                 <i class="fas fa-exclamation-triangle"></i>
               </span>
             </div>
-            <p class="help is-danger">This email is invalid</p>
+            <p hidden class="help is-danger" >This email is invalid</p>
           </div>
           <div class="field">
             <label class="label">Message</label>
