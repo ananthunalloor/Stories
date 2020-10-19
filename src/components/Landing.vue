@@ -2,11 +2,11 @@
     <div class="columns m-0 p-0 main-container">
   <div class="column is-half p-0 left-banner is-hidden-touch">
     <div class="left-banner-icons">
-      <div class="p-2"> <span class="icon is-large" tag="a"><i class="fab fa-2x fa-instagram"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-facebook"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-youtube"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-whatsapp"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-twitter"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-instagram"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-facebook"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-youtube"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-whatsapp"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-twitter"></i></span></div>
     </div>
   </div>
   <div class="column p-0 right-banner">
@@ -15,20 +15,37 @@
       <h1 class="is-size-2">PANAYARMADAM</h1>
       </div>
           <div class="right-banner-icons is-hidden-desktop">
-      <div class="p-2"> <span class="icon is-large" tag="a"><i class="fab fa-2x fa-instagram"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-facebook"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-youtube"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-whatsapp"></i></span></div>
-      <div class="p-2"> <span class="icon is-large"><i class="fab fa-2x fa-twitter"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-instagram"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-facebook"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-youtube"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-whatsapp"></i></span></div>
+      <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-twitter"></i></span></div>
     </div>
     <div class="right-banner-background"></div>
+  </div>
+  <div class="intro-banner">
+    <div class="intro-banner-text">
+      <h1 class="hide"><span class="text">Welcome</span></h1>
+      <h1 class="hide"><span class="text">To</span></h1>
+      <h1 class="hide"><span class="text">Stories</span></h1>
+      <h1 class="hide"><span class="text">By</span></h1>
+      <h1 class="hide"><span class="text">Anand</span></h1>
+    </div>
   </div>
     </div>
 </template>
 <script>
-import { TimelineLite } from 'gsap
+import { TimelineLite } from 'gsap'
 export default {
-  name: "Landing"
+  name: "Landing",
+    mounted() {
+    const tl = new TimelineLite({defaults:{ease:"power1.out"}})
+    console.log(tl)
+    tl.to(".text", {y:"0%", duration: 1, stagger:0.25, delay:0.5});
+    tl.to(".intro-banner", {y:"-100%", duration: 1, delay:0.5});
+    tl.fromTo(".right-banner-text",{opacity:0},{opacity:1, duration:1, delay:0.5},'-=1');
+    tl.fromTo(".social-icons",{opacity:0},{opacity:1, duration:0.5, stagger:-0.15},'-=1');
+  }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -87,6 +104,31 @@ export default {
       bottom: 2rem;
       left: 1.5rem;
       color: white;
+    }
+  }
+  .intro-banner{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    .intro-banner-text{
+      color: white;
+      font-size: 3rem;
+      font-weight: 900;
+      .hide{
+        background-color: black;
+        overflow: hidden;
+        span{
+          transform: translateY(100%);
+          display: inline-block;
+        }
+      }
     }
   }
 }

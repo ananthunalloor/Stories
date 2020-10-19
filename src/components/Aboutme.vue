@@ -4,6 +4,11 @@
     <div class="columns p-4 am-main-container">
       <div class="column is-two-fifths is-hidden-touch am-container-left"></div>
       <div class="column am-container-right">
+        <div class="is-hidden-desktop am-mobile-image">
+          <figure class="image is-128x128">
+  <img class="is-rounded" src="../assets/images/anand256.jpg">
+</figure>
+        </div>
         <div><h1 class="is-size-4">ABOUT ME</h1></div>
         <div class="am-right-text">
           <p>
@@ -48,6 +53,17 @@ export default {
       .am-right-text {
         text-align: center;
         padding: 5vh 5vw;
+      }
+    }
+    .am-mobile-image{
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1.5rem;
+      img{
+        object-position: left top;
+        width: 128px;
+        height: 128px;
       }
     }
   }
