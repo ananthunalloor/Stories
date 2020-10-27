@@ -31,6 +31,7 @@ export default {
 background: linear-gradient(22deg, rgba(100,87,166,1) 0%, rgba(7,2,13,1) 100%);
   .gallery-header{
     width: 100%;
+    min-height: 50vh;
     height: auto;
     background-image: url("../assets/images/anandstoreis.jpg");
     background-repeat: no-repeat;

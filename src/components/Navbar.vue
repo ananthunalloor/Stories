@@ -45,10 +45,14 @@
     </nav>
   </header>
 </template>
-
 <script>
+import { TimelineLite } from 'gsap'
 export default {
   name: "Navbar",
+      mounted() {
+    const tl = new TimelineLite({defaults:{ease:"power1.out"}});
+    tl.fromTo(".navbar-menu",{opacity:0},{opacity:1, duration:3, stagger:0.5});
+  }
 };
 document.addEventListener("DOMContentLoaded", () => {
   const $navbarBurgers = Array.prototype.slice.call(

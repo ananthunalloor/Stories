@@ -39,8 +39,7 @@ import { TimelineLite } from 'gsap'
 export default {
   name: "Landing",
     mounted() {
-    const tl = new TimelineLite({defaults:{ease:"power1.out"}})
-    console.log(tl)
+    const tl = new TimelineLite({defaults:{ease:"power1.out"}});
     tl.to(".text", {y:"0%", duration: 1, stagger:0.25, delay:0.5});
     tl.to(".intro-banner", {y:"-100%", duration: 1, delay:0.5});
     tl.fromTo(".right-banner-text",{opacity:0},{opacity:1, duration:1, delay:0.5},'-=1');
