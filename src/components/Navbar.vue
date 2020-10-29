@@ -46,11 +46,11 @@
   </header>
 </template>
 <script>
-import { TimelineLite } from 'gsap'
+import { gsap } from 'gsap'
 export default {
   name: "Navbar",
       mounted() {
-    const tl = new TimelineLite({defaults:{ease:"power1.out"}});
+    const tl = new gsap.timeline({defaults:{ease:"power1.out"}});
     tl.fromTo(".navbar-menu",{opacity:0},{opacity:1, duration:3, stagger:0.5});
   }
 };

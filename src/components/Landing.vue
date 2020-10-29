@@ -35,11 +35,14 @@
     </div>
 </template>
 <script>
-import { TimelineLite } from 'gsap'
+import { gsap } from 'gsap'
+//import { CSSPlugin } from 'gsap/CSSPlugin'
+
+//gsap.registerPlugin(CSSPlugin)
 export default {
   name: "Landing",
     mounted() {
-    const tl = new TimelineLite({defaults:{ease:"power1.out"}});
+    const tl = gsap.timeline({defaults:{ease:"power1.out"}});
     tl.to(".text", {y:"0%", duration: 1, stagger:0.25, delay:0.5});
     tl.to(".intro-banner", {y:"-100%", duration: 1, delay:0.5});
     tl.fromTo(".right-banner-text",{opacity:0},{opacity:1, duration:1, delay:0.5},'-=1');

@@ -1,6 +1,6 @@
 <template>
-  <div class="footer">
-    <h1>Footer</h1>
+  <div class="footer has-text-centered">
+    <p>©2020 - 2021 AnandPanayarmadam | All rights reserved</p>
   </div>
 </template>
 
