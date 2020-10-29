@@ -20,13 +20,14 @@
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
+          @click="showNav = !showNav" :class="{ 'is-active': showNav }"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showNav }">
         <div class="navbar-end pr-5">
           <div class="navbar-item">
             <router-link to="/" tag="a" class="navbar-item">HOME</router-link>
@@ -52,24 +53,14 @@ export default {
       mounted() {
     const tl = new gsap.timeline({defaults:{ease:"power1.out"}});
     tl.fromTo(".navbar-menu",{opacity:0},{opacity:1, duration:3, stagger:0.5});
-  }
+  },
+    data() {
+      return {
+        showNav: false
+      }
+    }
+  
 };
-document.addEventListener("DOMContentLoaded", () => {
-  const $navbarBurgers = Array.prototype.slice.call(
-    document.querySelectorAll(".navbar-burger"),
-    0
-  );
-  if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach((el) => {
-      el.addEventListener("click", () => {
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-        el.classList.toggle("is-active");
-        $target.classList.toggle("is-active");
-      });
-    });
-  }
-});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
