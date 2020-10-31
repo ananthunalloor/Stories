@@ -1,5 +1,5 @@
 <template>
-    <div class="columns m-0 p-0 main-container">
+    <div class="columns m-0 p-0 main-container" id="landing">
   <div class="column is-half p-0 left-banner is-hidden-touch">
     <div class="left-banner-icons">
       <div class="p-2"> <span class="icon is-large social-icons"><i class="fab fa-2x fa-instagram"></i></span></div>

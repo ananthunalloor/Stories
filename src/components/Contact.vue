@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" id="contact">
     <div class="columns contact-container">
       <div class="column is-half contact-pannel is-hidden-touch">
         <div class="pannel-image">

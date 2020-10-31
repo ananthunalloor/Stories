@@ -1,5 +1,5 @@
 <template>
-  <div class="aboutme" id="#aboutme">
+  <div class="aboutme" id="aboutme">
     <div class="am-left-image is-hidden-touch"></div>
     <div class="columns p-4 am-main-container">
       <div class="column is-two-fifths is-hidden-touch am-container-left"></div>
