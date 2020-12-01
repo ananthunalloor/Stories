@@ -4,7 +4,7 @@
       <div class="column has-text-centered gallery-text"><h1>STORIES BY ANAND</h1></div>
     </div>
     <div class="columns is-gapless is-multiline m-0 images-container">
-  <div class="column is-one-quarter image-holder" v-for="n in 12" :key="n">
+  <div class="column is-one-quarter image-holder" v-for="n in 16" :key="n">
           <figure class="image is-square">
   <img src="https://bulma.io/images/placeholders/480x480.png">
 </figure>
@@ -19,9 +19,25 @@
 </template>
 
 <script>
+import { database } from '../firebase'
 export default {
   name: "Gallery",
 };
+var ref = database.ref('Photos');
+ref.once('value',gotData,errData);
+function gotData(data) {
+  var snapdata = data.val();
+  var rawdata = JSON.parse(JSON.stringify(snapdata));
+  for(var x in rawdata){
+    console.log(rawdata[x].url);
+    
+  }
+  return(rawdata)
+}
+function errData(err) {
+  console.log(err);
+  //var barnav;
+}
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
