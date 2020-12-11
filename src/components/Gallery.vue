@@ -25,8 +25,8 @@
     </div>
 
     <div>
-      <ul v-for="img in imgurls" :key="img">
-        <li :key="img">{{ img}}</li>
+      <ul v-for="img in rawdata" :key="img">
+        <li>hii</li>
       </ul>
     </div>
   </div>
@@ -34,33 +34,38 @@
 
 <script>
 //import { onBeforeMount } from "vue";
+//import axios from "axios";
 import { database } from "../firebase";
 
-var imageURL = [];
-var imageTitle = [];
+
+//var imageURL = [];
+//var imageTitle = [];
 
 export default {
   name: "Gallery",
-  data(){
-          var ref = database.ref("Photos");
+      async created(){
+      var ref = database.ref("Photos");
       ref.once("value", gotData);
       function gotData(data) {
         var snapdata = data.val();
-       var rawdata = JSON.parse(JSON.stringify(snapdata));
+        var rawdata = JSON.parse(JSON.stringify(snapdata));
+        var imageURL = [];
         //console.log(rawdata);
         for (var x in rawdata) {
           if (rawdata[x].Feature == true) {
-            imageURL.push(rawdata[x].url);
-            imageTitle.push(rawdata[x].Title);
+            imageURL.push(rawdata[x]);
+           // imageTitle.push(rawdata[x].Title);
           }
+          console.log(imageURL);
         }
       }
-      console.log(imageURL);
+    },
+  data(){
+    console.log(this.imageURL);
     return{
-      imgurls:imageURL,
-      imgtitle:imageTitle,
+      rawdata:this.imageURL
     }
-  },
+    },
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
